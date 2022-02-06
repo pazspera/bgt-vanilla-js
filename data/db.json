@@ -1,0 +1,104 @@
+{
+  "game_cards": [
+    {
+      "id": 1,
+      "game": "Dominion",
+      "date": "28/08/2021",
+      "players": [
+        {
+          "id": 1,
+          "player_name": "Zeuchi",
+          "winner": true
+        },
+        {
+          "id": 2,
+          "player_name": "Marea",
+          "winner": false
+        }
+      ],
+      "type": "type--deckbuilding"
+    },
+    {
+      "id": 2,
+      "game": "Seven Wonders",
+      "date": "15/07/2021",
+      "players": [
+        {
+          "id": 1,
+          "player_name": "Zeuchi",
+          "winner": false
+        },
+        {
+          "id": 2,
+          "player_name": "Marea",
+          "winner": true
+        }
+      ],
+      "type": "type--strategy"
+    },
+    {
+      "id": 3,
+      "game": "Star Realms",
+      "date": "07/09/2021",
+      "players": [
+        {
+          "id": 1,
+          "player_name": "Zeuchi",
+          "winner": true
+        },
+        {
+          "id": 2,
+          "player_name": "Marea",
+          "winner": false
+        }
+      ],
+      "type": "type--deckbuilding"
+    },
+    {
+      "game": "Carcassone",
+      "date": "03/12/2021",
+      "players": [
+        {
+          "id": 1,
+          "player_name": "Zeuchi",
+          "winner": false
+        },
+        {
+          "id": 2,
+          "player_name": "Marea",
+          "winner": false
+        },
+        {
+          "id": 3,
+          "player_name": "Fita",
+          "winner": true
+        }
+      ],
+      "type": "type--deckbuilding",
+      "id": 4
+    },
+    {
+      "game": "Age of Empires",
+      "date": "28/08/2021",
+      "players": [
+        {
+          "id": 1,
+          "player_name": "Zeuchi",
+          "winner": false
+        },
+        {
+          "id": 2,
+          "player_name": "Marea",
+          "winner": false
+        },
+        {
+          "id": 3,
+          "player_name": "Dylan",
+          "winner": true
+        }
+      ],
+      "type": "type--strategy",
+      "id": 5
+    }
+  ]
+}
