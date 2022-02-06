@@ -1,0 +1,56 @@
+.game-card{
+    max-width: 300px;
+    margin-bottom: 1em;
+
+    &__header,
+    &__body{
+        padding: 1em;
+    }
+
+    &__header{
+        background-color: aquamarine;
+    }
+
+    &__body{
+        background-color: white;
+    }
+
+    &__title,
+    &__date {
+        margin: 0;
+    }
+
+    &__title{
+        font-size: $size5;
+    }
+
+    &__date{
+        font-size: $size7;
+    }
+}
+
+.game-card__players {
+    margin: 0;
+}
+
+.game-card__body ul {
+    margin: 0;
+}
+
+
+.type{
+
+    &--deckbuilding{
+        background-color: lightsalmon;
+    }
+
+    &--strategy {
+        background-color: lightseagreen;
+    }
+}
+
+.winner-img {
+    width: 15px;
+    height: 15px;
+    display: inline;
+}

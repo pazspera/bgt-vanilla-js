@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="./css/bootstrap.min.css" />
+		<!-- CSS -->
+		<link rel="stylesheet" href="./css/main.css" />
+		<title>BGT Vanilla JS</title>
+	</head>
+	<body>
+		<!-- Menú navegación -->
+		<header class="sticky-top">
+			<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+				<div class="container">
+					<a class="navbar-brand" href="index.html"><img src="./img/logo_dark.svg" alt="Logo" /></a>
+					<button
+						class="navbar-toggler"
+						type="button"
+						data-bs-toggle="collapse"
+						data-bs-target="#navbarSupportedContent"
+						aria-controls="navbarSupportedContent"
+						aria-expanded="false"
+						aria-label="Toggle navigation"
+					>
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+							<li class="nav-item">
+								<a class="nav-link" href="#">Historial de partidas</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</header>
+
+		<!-- Hero -->
+		<section class="hero" id="index">
+			<div class="hero__container container">
+				<div class="row">
+					<div class="col-12 col-md-9 col-lg-8">
+						<h1 class="hero__title mb-5"><span>Board Game Tracker</span></h1>
+						<a href="#" class="btn btn__primary">Agregar partida</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Main -->
+		<main id="app"></main>
+
+		<!-- Bootstrap JS -->
+		<script src="./js/bootstrap.bundle.min.js"></script>
+	</body>
+</html>
