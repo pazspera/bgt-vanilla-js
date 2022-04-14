@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./css/bootstrap.min.css" />
     <!-- CSS -->
     <link rel="stylesheet" href="./css/main.css" />
-    <title>BGT Vanilla JS</title>
+    <title>Agregar partida - BGT Vanilla JS</title>
   </head>
   <body>
     <!-- Menú navegación -->
@@ -44,7 +44,6 @@
         <div class="row">
           <div class="col-12 col-md-9 col-lg-8">
             <h1 class="hero__title mb-5"><span>Board Game Tracker</span></h1>
-            <a href="agregar-partida.html" class="btn btn__primary">Agregar partida</a>
           </div>
         </div>
       </div>
@@ -54,11 +53,23 @@
     <main id="app">
       <div class="container">
         <div class="row">
-          <div class="col"></div>
+          <div class="col">
+            <h2 class="mb-5">Agregar partida</h2>
+            <form>
+              <h3 class="mb-3">1. Seleccionar juego</h3>
+              <div class="mb-3">
+                <select class="form-select form-select-sm mb-3" name="game-list" id="game-list">
+					<option selected>Abrir menu para ver juegos disponibles</option>
+				</select>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </main>
 
+	<!-- JS -->
+	<script src="./js/agregar-partida.js"></script>
     <!-- Bootstrap JS -->
     <script src="./js/bootstrap.bundle.min.js"></script>
   </body>
