@@ -36,6 +36,7 @@ fetch(URL_GAMES, {
 
 // Al hacer click en $btnAgregarJuego se generan los inputs para agregar nuevo juego
 d.addEventListener("click", (e) => {
+  // Agrega inputs para agregar nuevo juego
   if (e.target.matches("#btn-agregar-juego")) {
     e.preventDefault();
     // Borra contenido de $fieldAgregarJuego para evitar que se generen campos duplicados
