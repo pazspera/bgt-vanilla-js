@@ -75,7 +75,7 @@
               <!-- Agregar jugadores, permite hasta un máximo de 6 jugadores -->
               <h3 class="mt-5 mb-3">3. Seleccionar jugadores</h3>
               <div class="mb-3">
-                <label for="jugadores" class="form-label">Elija entre 1 y 6 jugadores</label>
+                <label for="jugadores" class="form-label">Eligir la cantidad de jugadores (entre 1 y 6 jugadores)</label>
                 <input class="form-control" id="jugadores" type="number" name="jugadores" list="opcionesJugadores" min="1" max="6" />
 
                 <datalist id="opcionesJugadores">
@@ -86,6 +86,9 @@
                   <option value="5"></option>
                   <option value="6"></option>
                 </datalist>
+
+                <!-- Espacio para generar inputs para elegir jugadores -->
+                <div id="field-agregar-jugadores"class="my-3"></div>
               </div>
             </form>
           </div>
