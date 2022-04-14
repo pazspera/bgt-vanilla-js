@@ -43,7 +43,7 @@
       <div class="hero__container container">
         <div class="row">
           <div class="col-12 col-md-9 col-lg-8">
-            <h1 class="hero__title mb-5"><span>Board Game Tracker</span></h1>
+            <h1 class="hero__title mb-5"><span>Agregar nueva partida</span></h1>
           </div>
         </div>
       </div>
@@ -54,13 +54,15 @@
       <div class="container">
         <div class="row">
           <div class="col">
-            <h2 class="mb-5">Agregar partida</h2>
             <form>
               <h3 class="mb-3">1. Seleccionar juego</h3>
               <div class="mb-3">
                 <select class="form-select form-select-sm mb-3" name="game-list" id="game-list">
-					<option selected>Abrir menu para ver juegos disponibles</option>
-				</select>
+                  <option selected>Abrir menu para ver juegos disponibles</option>
+                </select>
+                <button id="btn-agregar-juego" class="btn btn__secondary">Agregar nuevo juego</button>
+                <!-- Espacio para generar inputs para agregar nuevo juego -->
+                <div id="field-agregar-juego" class="my-3"></div>
               </div>
             </form>
           </div>
@@ -68,8 +70,8 @@
       </div>
     </main>
 
-	<!-- JS -->
-	<script src="./js/agregar-partida.js"></script>
+    <!-- JS -->
+    <script src="./js/agregar-partida.js"></script>
     <!-- Bootstrap JS -->
     <script src="./js/bootstrap.bundle.min.js"></script>
   </body>
