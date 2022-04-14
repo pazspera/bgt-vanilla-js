@@ -73,5 +73,7 @@ d.addEventListener("click", (e) => {
   // Impide que #guardar-juego-nuevo-btn refresque la página
   if (e.target.matches("#guardar-juego-nuevo-btn")) {
     e.preventDefault();
+    // Borra los campos de nuevo juego para simular que se agregó el nuevo juego al select
+    $fieldAgregarJuego.textContent = "";
   }
 });

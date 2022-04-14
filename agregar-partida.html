@@ -55,7 +55,8 @@
         <div class="row">
           <div class="col">
             <form>
-              <h3 class="mb-3">1. Seleccionar juego</h3>
+              <!-- Agregar juego -->
+              <h3 class="mt-5 mb-3">1. Seleccionar juego</h3>
               <div class="mb-3">
                 <select class="form-select form-select-sm mb-3" name="game-list" id="game-list">
                   <option selected>Abrir menu para ver juegos disponibles</option>
@@ -63,6 +64,11 @@
                 <button id="btn-agregar-juego" class="btn btn__secondary">Agregar nuevo juego</button>
                 <!-- Espacio para generar inputs para agregar nuevo juego -->
                 <div id="field-agregar-juego" class="my-3"></div>
+              </div>
+              <!-- Agregar fecha -->
+              <h3 class="mt-5 mb-3">2. Seleccionar fecha</h3>
+              <div class="mb-3">
+                <input type="date" name="game-date" id="game-date" />
               </div>
             </form>
           </div>
