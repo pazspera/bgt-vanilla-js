@@ -4,7 +4,6 @@
     padding: 1em 0;
     display: flex;
     @include background-image;
-    background-image: url(../img/hero_bg_img2.jpg);
     background-position: center;
 
     &__container {
@@ -72,4 +71,12 @@
     .hero{
         height: 75vh;
     }
+}
+
+#index {
+    background-image: url(../img/hero_bg_img2.jpg);
+}
+
+#add-game {
+    background-image: url(../img/hero_bg_add_game.jpg);
 }
