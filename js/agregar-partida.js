@@ -93,7 +93,7 @@ d.addEventListener("change", (e) => {
 
     // con un for, crear los campos de cada jugador
     // dentro del for, hacer una petición fetch para recuperar jugadores de players.json
-    for (let i = 0; i < cantidadJugadores; i++) {
+    for (let i = 0; i < cantidadJugadores && i < 6; i++) {
       console.log(`Jugador #${i + 1}`);
       // Crear input para jugador
       const $fragment = d.createDocumentFragment();
@@ -105,7 +105,7 @@ d.addEventListener("change", (e) => {
       $label.innerHTML = `Jugador #${i + 1}`;
       $fragment.appendChild($label);
 
-      $select.classList.add("form-select");
+      $select.classList.add("form-select", "mb-3");
       $select.id = `jugador${i}`;
 
       // petición fetch para recuperar la lista de jugadores
