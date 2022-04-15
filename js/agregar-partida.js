@@ -75,10 +75,51 @@ d.addEventListener("click", (e) => {
   }
 
   // Impide que #guardar-juego-nuevo-btn refresque la página
-  if (e.target.matches("#guardar-juego-nuevo-btn")) {
+  if (e.target.matches("#guardar-jugador-nuevo-btn")) {
     e.preventDefault();
     // Borra los campos de nuevo juego para simular que se agregó el nuevo juego al select
     $fieldAgregarJuego.textContent = "";
+  }
+
+  // Agrega inputs para agregar nuevo jugador
+  if (e.target.matches("#btn-agregar-jugador")) {
+    e.preventDefault();
+    // Borra contenido de $fieldAgregarJuego para evitar que se generen campos duplicados
+    $fieldAgregarJugadores.textContent = "";
+
+    // Crear input y btn de aceptar
+    const $fragment = d.createDocumentFragment();
+    const $label = d.createElement("label");
+    const $input = d.createElement("input");
+    const $aceptarBtn = d.createElement("button");
+
+    // Label
+    $label.classList.add("form-label");
+    $label.for = "nuevo-juego";
+    $label.innerHTML = "Nombre del nuevo jugador";
+    $fragment.appendChild($label);
+
+    // Input
+    $input.type = "text";
+    $input.classList.add("form-control", "mb-3");
+    $input.id = "nuevo-juego";
+    $fragment.appendChild($input);
+
+    // Btn
+    $aceptarBtn.id = "guardar-jugador-nuevo-btn";
+    $aceptarBtn.classList.add("btn", "btn__secondary");
+    $aceptarBtn.innerHTML = "Aceptar";
+    $fragment.appendChild($aceptarBtn);
+
+    // Agregar fragmento al DOM
+    $fieldAgregarJugadores.appendChild($fragment);
+  }
+
+  // Impide que #guardar-juego-nuevo-btn refresque la página
+  if (e.target.matches("#guardar-jugador-nuevo-btn")) {
+    e.preventDefault();
+    // Borra los campos de nuevo juego para simular que se agregó el nuevo juego al select
+    $fieldAgregarJugadores.textContent = "";
   }
 });
 
