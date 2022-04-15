@@ -4,6 +4,8 @@ const $btnAgregarJuego = d.getElementById("btn-agregar-juego");
 const $fieldAgregarJuego = d.getElementById("field-agregar-juego");
 const $selectJugadores = d.getElementById("jugadores");
 const $fieldAgregarJugadores = d.getElementById("field-agregar-jugadores");
+const $selectPlayerWinner = d.getElementById("players-list-winner");
+let jugadoresEnPartida = [];
 
 const URL_GAMES = "./data/games.json";
 const URL_PLAYERS = "./data/players.json";
@@ -13,14 +15,14 @@ fetch(URL_GAMES, {
   method: "GET",
 })
   .then((res) => {
-    console.log(res);
+    // console.log(res);
     return res.ok ? res.json() : Promise.reject(res);
     // envía la respuesta al otro then en formato json si la respuesta da ok true
     // si no está ok, fuerza a que se ejecute el catch rechazando la promesa
     // si no ponemos el rechazo de la promesa, no se ejecuta el catch aunque haya error
   })
   .then((json) => {
-    console.log(json);
+    // console.log(json);
     const $fragment = d.createDocumentFragment();
     // recorre el json y crea un option por cada juego disponible
     json.forEach((game) => {
@@ -45,7 +47,6 @@ d.addEventListener("click", (e) => {
     // Borra contenido de $fieldAgregarJuego para evitar que se generen campos duplicados
     $fieldAgregarJuego.textContent = "";
 
-    console.log("estoy haciendo click en el btn agregar juego");
     // Crear input y btn de aceptar
     const $fragment = d.createDocumentFragment();
     const $label = d.createElement("label");
@@ -135,7 +136,7 @@ d.addEventListener("change", (e) => {
     // con un for, crear los campos de cada jugador
     // dentro del for, hacer una petición fetch para recuperar jugadores de players.json
     for (let i = 0; i < cantidadJugadores && i < 6; i++) {
-      console.log(`Jugador #${i + 1}`);
+      // console.log(`Jugador #${i + 1}`);
       // Crear input para jugador
       const $fragment = d.createDocumentFragment();
       const $select = d.createElement("select");
@@ -154,14 +155,14 @@ d.addEventListener("change", (e) => {
         method: "GET",
       })
         .then((res) => {
-          console.log(res);
+          // console.log(res);
           return res.ok ? res.json() : Promise.reject(res);
           // envía la respuesta al otro then en formato json si la respuesta da ok true
           // si no está ok, fuerza a que se ejecute el catch rechazando la promesa
           // si no ponemos el rechazo de la promesa, no se ejecuta el catch aunque haya error
         })
         .then((json) => {
-          console.log(json);
+          // console.log(json);
           const $fragment = d.createDocumentFragment();
 
           // genera opción default antes de recuperar players
@@ -170,7 +171,7 @@ d.addEventListener("change", (e) => {
           $optionDefault.innerHTML = "Abrir menu para ver jugadores disponibles";
           $fragment.appendChild($optionDefault);
 
-          // recorre el json y crea un option por cada juego disponible
+          // recorre el json y crea un option por cada jugador disponible
           json.forEach((player) => {
             const $option = d.createElement("option");
             $option.value = player.id;
@@ -178,6 +179,13 @@ d.addEventListener("change", (e) => {
             $fragment.appendChild($option);
           });
           $select.appendChild($fragment);
+
+          // agrega event listener a cada select para que on change se agreguen a jugadoresEnPartida[]
+          $select.addEventListener("change", (e) => {
+            console.log("cambió el select");
+            jugadoresEnPartida.push($select.value);
+            console.log(jugadoresEnPartida);
+          });
         })
         .catch((err) => {
           console.log("Error desde catch");
