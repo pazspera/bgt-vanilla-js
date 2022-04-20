@@ -130,6 +130,7 @@ d.addEventListener("change", (e) => {
   if (e.target.matches("#jugadores")) {
     // borrar contenido de $fieldAgregarJugadores para evitar campos duplicados
     $fieldAgregarJugadores.textContent = "";
+    const $btnConfirmarJugadores = d.createElement("button");
 
     let cantidadJugadores = $selectJugadores.value;
 
@@ -187,6 +188,15 @@ d.addEventListener("change", (e) => {
             console.log(jugadoresEnPartida);
           });
         })
+        .finally(() => {
+          // crea un btn para confirmar los jugadores elegidos
+          // recupera el valor de todos los select y los guarda en jugadoresEnPartida[]
+          // para usar esos datos para crear el select para elegir ganadores
+          $btnConfirmarJugadores.classList.add("btn", "btn__secondary");
+          $btnConfirmarJugadores.id = "btn-confirmar-jugadores";
+          $btnConfirmarJugadores.textContent = "Confirmar jugadores";
+          console.log($btnConfirmarJugadores);
+        })
         .catch((err) => {
           console.log("Error desde catch");
           let message = err.statusText || "Ocurrió un error";
@@ -195,6 +205,7 @@ d.addEventListener("change", (e) => {
 
       // agregar al DOM
       $fragment.appendChild($select);
+      $fragment.appendChild($btnConfirmarJugadores);
       $fieldAgregarJugadores.appendChild($fragment);
     }
   }
