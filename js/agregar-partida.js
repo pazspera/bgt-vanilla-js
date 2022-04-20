@@ -6,6 +6,7 @@ const $selectJugadores = d.getElementById("jugadores");
 const $fieldAgregarJugadores = d.getElementById("field-agregar-jugadores");
 const $selectPlayerWinner = d.getElementById("players-list-winner");
 const $btnConfirmarJugadores = d.createElement("button");
+const $btnSubmit = d.getElementById("btn-submit");
 let jugadoresEnPartida = [];
 
 const URL_GAMES = "./data/games.json";
@@ -154,15 +155,21 @@ d.addEventListener("click", (e) => {
       const $option = d.createElement("option");
       $option.textContent = jugador;
       $fragment.appendChild($option);
-    })
+    });
 
     // Agregar al DOM
     $selectPlayerWinner.appendChild($fragment);
+  }
+
+  // Impide que $btnSubmit refresque la página
+  if (e.target.matches("#btn-submit")) {
+    e.preventDefault();
   }
 });
 
 // Cuando cambia la cantidad de jugadores elegidos, crear esa cantidad de campos para elegir jugadores
 // El fetch iría dentro del for que genera los campos
+// También revisa cuando cambia el select de ganadores para activar btn de guardar partida
 d.addEventListener("change", (e) => {
   if (e.target.matches("#jugadores")) {
     // borrar contenido de $fieldAgregarJugadores para evitar campos duplicados
@@ -243,5 +250,10 @@ d.addEventListener("change", (e) => {
       $fragment.appendChild($btnConfirmarJugadores);
       $fieldAgregarJugadores.appendChild($fragment);
     }
+  }
+
+  // Cuando cambia el select de #players-list-winner, saca el disabled del btn para guardar partida
+  if (e.target.matches("#players-list-winner")) {
+    $btnSubmit.removeAttribute("disabled");
   }
 });
