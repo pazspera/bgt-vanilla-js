@@ -5,6 +5,7 @@ const $fieldAgregarJuego = d.getElementById("field-agregar-juego");
 const $selectJugadores = d.getElementById("jugadores");
 const $fieldAgregarJugadores = d.getElementById("field-agregar-jugadores");
 const $selectPlayerWinner = d.getElementById("players-list-winner");
+const $btnConfirmarJugadores = d.createElement("button");
 let jugadoresEnPartida = [];
 
 const URL_GAMES = "./data/games.json";
@@ -122,6 +123,42 @@ d.addEventListener("click", (e) => {
     // Borra los campos de nuevo juego para simular que se agregó el nuevo juego al select
     $fieldAgregarJugadores.textContent = "";
   }
+
+  // $btnConfirmarJugadores recupera los jugadores seleccionados y usa esa info
+  // para cargar las options del select de elegir ganador
+  if (e.target.matches("#btn-confirmar-jugadores")) {
+    e.preventDefault();
+    console.log("confirmando les jugadores");
+    const listaJugadores = d.querySelectorAll(".select-jugadores");
+    console.log(listaJugadores);
+
+    // recupera los nombres de los jugadores elegidos y los guarda en jugadoresEnPartida[]
+    listaJugadores.forEach((select) => {
+      const nombreJugador = select.options[select.selectedIndex].text;
+      console.log(nombreJugador);
+      jugadoresEnPartida.push(nombreJugador);
+      console.log(jugadoresEnPartida);
+    });
+
+    // usa el contenido de jugadoresEnPartida[] para generar las options de $selectPlayerWinner
+    $selectPlayerWinner.innerHTML = "";
+    const $fragment = d.createDocumentFragment();
+
+    // option default
+    const $optionDefault = d.createElement("option");
+    $optionDefault.selected;
+    $optionDefault.innerHTML = "Abrir menu para seleccionar ganador";
+    $fragment.appendChild($optionDefault);
+
+    jugadoresEnPartida.forEach((jugador) => {
+      const $option = d.createElement("option");
+      $option.textContent = jugador;
+      $fragment.appendChild($option);
+    })
+
+    // Agregar al DOM
+    $selectPlayerWinner.appendChild($fragment);
+  }
 });
 
 // Cuando cambia la cantidad de jugadores elegidos, crear esa cantidad de campos para elegir jugadores
@@ -130,7 +167,6 @@ d.addEventListener("change", (e) => {
   if (e.target.matches("#jugadores")) {
     // borrar contenido de $fieldAgregarJugadores para evitar campos duplicados
     $fieldAgregarJugadores.textContent = "";
-    const $btnConfirmarJugadores = d.createElement("button");
 
     let cantidadJugadores = $selectJugadores.value;
 
@@ -148,7 +184,7 @@ d.addEventListener("change", (e) => {
       $label.innerHTML = `Jugador #${i + 1}`;
       $fragment.appendChild($label);
 
-      $select.classList.add("form-select", "mb-3");
+      $select.classList.add("form-select", "mb-3", "select-jugadores");
       $select.id = `jugador${i}`;
 
       // petición fetch para recuperar la lista de jugadores
@@ -176,26 +212,25 @@ d.addEventListener("change", (e) => {
           json.forEach((player) => {
             const $option = d.createElement("option");
             $option.value = player.id;
-            $option.innerHTML = player.name;
+            $option.textContent = player.name;
             $fragment.appendChild($option);
           });
           $select.appendChild($fragment);
 
-          // agrega event listener a cada select para que on change se agreguen a jugadoresEnPartida[]
+          /* // agrega event listener a cada select para que on change se agreguen a jugadoresEnPartida[]
           $select.addEventListener("change", (e) => {
             console.log("cambió el select");
             jugadoresEnPartida.push($select.value);
             console.log(jugadoresEnPartida);
-          });
+          }); */
         })
         .finally(() => {
-          // crea un btn para confirmar los jugadores elegidos
+          // crea un btn para confirmar los jugadores elegidos una vez que se generan todos los inputs
           // recupera el valor de todos los select y los guarda en jugadoresEnPartida[]
           // para usar esos datos para crear el select para elegir ganadores
           $btnConfirmarJugadores.classList.add("btn", "btn__secondary");
           $btnConfirmarJugadores.id = "btn-confirmar-jugadores";
           $btnConfirmarJugadores.textContent = "Confirmar jugadores";
-          console.log($btnConfirmarJugadores);
         })
         .catch((err) => {
           console.log("Error desde catch");
