@@ -1,104 +1,46 @@
 {
-  "game_cards": [
+  "games": [
     {
       "id": 1,
-      "game": "Dominion",
-      "date": "28/08/2021",
-      "players": [
-        {
-          "id": 1,
-          "player_name": "Zeuchi",
-          "winner": true
-        },
-        {
-          "id": 2,
-          "player_name": "Marea",
-          "winner": false
-        }
-      ],
-      "type": "type--deckbuilding"
+      "name": "Dominion"
     },
     {
       "id": 2,
-      "game": "Seven Wonders",
-      "date": "15/07/2021",
-      "players": [
-        {
-          "id": 1,
-          "player_name": "Zeuchi",
-          "winner": false
-        },
-        {
-          "id": 2,
-          "player_name": "Marea",
-          "winner": true
-        }
-      ],
-      "type": "type--strategy"
+      "name": "Star Realms"
     },
     {
       "id": 3,
-      "game": "Star Realms",
-      "date": "07/09/2021",
-      "players": [
-        {
-          "id": 1,
-          "player_name": "Zeuchi",
-          "winner": true
-        },
-        {
-          "id": 2,
-          "player_name": "Marea",
-          "winner": false
-        }
-      ],
-      "type": "type--deckbuilding"
+      "name": "Wiz Wars"
     },
     {
-      "game": "Carcassone",
-      "date": "03/12/2021",
-      "players": [
-        {
-          "id": 1,
-          "player_name": "Zeuchi",
-          "winner": false
-        },
-        {
-          "id": 2,
-          "player_name": "Marea",
-          "winner": false
-        },
-        {
-          "id": 3,
-          "player_name": "Fita",
-          "winner": true
-        }
-      ],
-      "type": "type--deckbuilding",
-      "id": 4
+      "id": 4,
+      "name": "Carcassone"
+    }
+  ],
+  "players": [
+    {
+      "id": 1,
+      "name": "Zeuchi"
     },
     {
-      "game": "Age of Empires",
-      "date": "28/08/2021",
-      "players": [
-        {
-          "id": 1,
-          "player_name": "Zeuchi",
-          "winner": false
-        },
-        {
-          "id": 2,
-          "player_name": "Marea",
-          "winner": false
-        },
-        {
-          "id": 3,
-          "player_name": "Dylan",
-          "winner": true
-        }
-      ],
-      "type": "type--strategy",
-      "id": 5
+      "id": 2,
+      "name": "Marea"
+    },
+    {
+      "id": 3,
+      "name": "Geor"
+    },
+    {
+      "id": 4,
+      "name": "Pini"
+    },
+    {
+      "id": 5,
+      "name": "Paz"
+    },
+    {
+      "id": 6,
+      "name": "Batman"
     }
   ]
 }
