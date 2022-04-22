@@ -8,10 +8,10 @@ Sería muy confuso mantener todo junto, además de tener que hacer muchas petici
 
 ## Versión 2 (Actual)
 
-Instalé JSON Server para tener la API con players y games. 
+Instalé JSON Server para tener la API con players y games.
 
 Comando para iniciar JSON Server:
 
-`json-server --watch db.json`
+`json-server --watch data/db.json`
 
-Ir a [http://localhost:3000/](http://localhost:3000/) para consultar API. 
+Ir a [http://localhost:3000/](http://localhost:3000/) para consultar API.
