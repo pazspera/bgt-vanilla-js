@@ -15,6 +15,14 @@
     {
       "id": 4,
       "name": "Carcassone"
+    },
+    {
+      "name": "Locke & Key",
+      "id": 5
+    },
+    {
+      "id": 6,
+      "name": "Dixit"
     }
   ],
   "players": [
@@ -39,8 +47,8 @@
       "name": "Paz"
     },
     {
-      "id": 6,
-      "name": "Batman"
+      "name": "Fita",
+      "id": 6
     }
   ]
 }
