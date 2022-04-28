@@ -12,7 +12,7 @@ html {
 
 body {
   margin: 0;
-  background-color: #E7EEEA;
+  background-color: #e7eeea;
 }
 
 img {
@@ -37,6 +37,10 @@ h5,
 h6 {
   font-family: "Ruda", sans-serif;
   margin-top: 0;
+}
+
+.d-none {
+  display: none;
 }
 
 @media (min-width: 720px) {
@@ -73,18 +77,25 @@ h6 {
   font-size: 0.8rem;
   padding: 0.5rem 1rem;
 }
-.btn__primary, .btn__secondary {
+.btn__primary,
+.btn__secondary {
   background-color: #633183;
-  color: #FCFFFE;
+  color: #fcfffe;
   transition: all 0.5s ease-in-out;
 }
-.btn__primary:hover, .btn__primary:focus, .btn__primary:active, .btn__secondary:hover, .btn__secondary:focus, .btn__secondary:active {
-  background-color: #1F1E1F;
-  color: #FCFFFE;
+.btn__primary:hover,
+.btn__primary:focus,
+.btn__primary:active,
+.btn__secondary:hover,
+.btn__secondary:focus,
+.btn__secondary:active {
+  background-color: #1f1e1f;
+  color: #fcfffe;
   transition: all 0.5s ease-in-out;
 }
-.btn__primary:focus, .btn__secondary:focus {
-  box-shadow: 0 0 0 0.25rem #FCFFFE;
+.btn__primary:focus,
+.btn__secondary:focus {
+  box-shadow: 0 0 0 0.25rem #fcfffe;
 }
 
 .card-grid {
@@ -108,7 +119,8 @@ h6 {
   max-width: 300px;
   margin-bottom: 1em;
 }
-.game-card__header, .game-card__body {
+.game-card__header,
+.game-card__body {
   padding: 1em;
 }
 .game-card__header {
@@ -117,7 +129,8 @@ h6 {
 .game-card__body {
   background-color: white;
 }
-.game-card__title, .game-card__date {
+.game-card__title,
+.game-card__date {
   margin: 0;
 }
 .game-card__title {
@@ -155,7 +168,7 @@ h6 {
   display: flex;
   max-width: 100%;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -181,15 +194,17 @@ h6 {
   margin: 0 0 1.5em 0;
   font-size: 3.052rem;
 }
-.hero__title, .hero__text {
-  color: #FCFFFE;
+.hero__title,
+.hero__text {
+  color: #fcfffe;
   font-family: "Ruda", sans-serif;
   align-self: start;
   justify-self: center;
   text-align: left;
 }
-.hero__title span, .hero__text span {
-  background-color: #1F1E1F;
+.hero__title span,
+.hero__text span {
+  background-color: #1f1e1f;
   /*  agregar los dos que brave no soporta 
       box-decoration-break solo
    */
@@ -228,7 +243,7 @@ h6 {
 
 /*  Header  */
 .navbar {
-  background-color: #1F1E1F !important;
+  background-color: #1f1e1f !important;
 }
 
 .nav-link {
@@ -247,11 +262,12 @@ h6 {
 .navbar-brand,
 .navbar-nav,
 .nav-link {
-  color: #FCFFFE !important;
+  color: #fcfffe !important;
   text-transform: uppercase;
   transition: all 0.5s ease-in-out;
 }
-.navbar-dark:hover, .navbar-dark:focus,
+.navbar-dark:hover,
+.navbar-dark:focus,
 .navbar-brand:hover,
 .navbar-brand:focus,
 .navbar-nav:hover,
@@ -264,21 +280,22 @@ h6 {
 
 .active {
   font-weight: 700;
-  color: #FCFFFE !important;
+  color: #fcfffe !important;
 }
 
 .navbar-dark,
 .navbar-toggler {
-  color: #FCFFFE;
+  color: #fcfffe;
 }
-.navbar-dark:hover, .navbar-dark:focus,
+.navbar-dark:hover,
+.navbar-dark:focus,
 .navbar-toggler:hover,
 .navbar-toggler:focus {
   color: #633183;
 }
 
 .bg-dark {
-  background-color: #1F1E1F !important;
+  background-color: #1f1e1f !important;
 }
 
 .anchor {
@@ -286,4 +303,4 @@ h6 {
   height: 79px;
   margin-top: -79px;
   visibility: hidden;
-}/*# sourceMappingURL=main.css.map */
+} /*# sourceMappingURL=main.css.map */
