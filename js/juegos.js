@@ -32,14 +32,19 @@ fetch(URL_GAMES, {
         const $td2 = d.createElement("td");
 
         const $btnEditar = d.createElement("button");
-        $btnEditar.classList.add("btn", "btn__secondary", "me-3");
+        $btnEditar.classList.add("edit", "btn", "btn__secondary", "me-3");
         $btnEditar.textContent = "Editar";
+        // data attributes
+        $btnEditar.dataset.id = game.id;
+        $btnEditar.dataset.name = game.name;
         $td2.appendChild($btnEditar);
         
         // crea btn para eliminar
         const $btnEliminar = d.createElement("button");
-        $btnEliminar.classList.add("btn", "btn__secondary");
+        $btnEliminar.classList.add("delete","btn", "btn__secondary");
         $btnEliminar.textContent = "Eliminar";
+        // data attributes
+        $btnEliminar.dataset.id = game.id;
         $td2.appendChild($btnEliminar);
         
         $tr.appendChild($td);

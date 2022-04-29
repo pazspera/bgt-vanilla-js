@@ -1,18 +1,18 @@
 [
   {
-    "id": "001",
+    "id": "G01",
     "name": "Dominion"
   },
   {
-    "id": "002",
+    "id": "G02",
     "name": "Star Realms"
   },
   {
-    "id": "003",
+    "id": "G03",
     "name": "Wiz Wars"
   },
   {
-    "id": "004",
+    "id": "G04",
     "name": "Carcassone"
   }
 ]
