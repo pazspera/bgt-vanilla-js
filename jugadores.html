@@ -60,7 +60,29 @@
       <div class="container">
         <div class="row">
           <div class="col" id="main-content">
-            <h2>Jugadores</h2>
+            <h2 id="crud-title">Agregar jugador</h2>
+            <form id="crud-form">
+              <div class="mb-3">
+                <label for="name">Nombre del jugador</label>
+                <input type="text" id="name" class="form-control" name="name" required>
+              </div>
+              <div class="mb-3">
+                <button class="btn btn__secondary add me-3">Agregar jugador</button>
+                <input type="submit" class="btn btn__secondary" value="Enviar">
+              </div>
+            </form>
+          </div>
+          <div class="my-5">
+            <h2 class="mb-3">Jugadores disponibles</h2>
+            <table id="crud-table" class="table">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody id="crud-table-content"></tbody>
+            </table>
           </div>
         </div>
       </div>
@@ -69,6 +91,6 @@
     <!-- Bootstrap JS -->
     <script src="./js/bootstrap.bundle.min.js"></script>
     <!-- JS -->
-    <script src="./js/index.js"></script>
+    <script src="./js/jugadores.js"></script>
   </body>
 </html>

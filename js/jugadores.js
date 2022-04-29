@@ -1,20 +1,16 @@
-/* 
-    1. Recuperar todos los juegos del json y pintarlos en una tabla on DOMContentLoaded
-
-*/
-
 const d = document;
-const $gameCrudTableContent = d.getElementById("game-crud-table-content");
-const $gameCrudTitle = d.getElementById("game-crud-title");
-console.log($gameCrudTitle);
-const $gameName = d.getElementById("game-name");
-console.log($gameName);
-const URL_GAMES = "./data/games.json";
+const $crudTitle = d.getElementById("crud-title");
+const $crudForm = d.getElementById("crud-form");
+const $crudTable = d.getElementById("crud-table");
+const $crudTableContent = d.getElementById("crud-table-content");
 
-fetch(URL_GAMES, {
+const URL_PLAYERS = "./data/players.json";
+
+fetch(URL_PLAYERS, {
   method: "GET",
 })
   .then((res) => {
+    console.log(res);
     return res.ok ? res.json() : Promise.reject(res);
     // envía la respuesta al otro then en formato json si la respuesta da ok true
     // si no está ok, fuerza a que se ejecute el catch rechazando la promesa
@@ -24,11 +20,11 @@ fetch(URL_GAMES, {
     console.log(json);
     const $fragment = d.createDocumentFragment();
     // recorre el json y crea un tr por cada juego
-    json.forEach((game) => {
+    json.forEach((player) => {
       // crea una fila en la tabla por juego
       const $tr = d.createElement("tr");
       const $td = d.createElement("td");
-      $td.textContent = game.name;
+      $td.textContent = player.name;
 
       // crea btn para editar
       const $td2 = d.createElement("td");
@@ -37,8 +33,8 @@ fetch(URL_GAMES, {
       $btnEditar.classList.add("edit", "btn", "btn__secondary", "me-3");
       $btnEditar.textContent = "Editar";
       // data attributes
-      $btnEditar.dataset.id = game.id;
-      $btnEditar.dataset.name = game.name;
+      $btnEditar.dataset.id = player.id;
+      $btnEditar.dataset.name = player.name;
       $td2.appendChild($btnEditar);
 
       // crea btn para eliminar
@@ -46,7 +42,7 @@ fetch(URL_GAMES, {
       $btnEliminar.classList.add("delete", "btn", "btn__secondary");
       $btnEliminar.textContent = "Eliminar";
       // data attributes
-      $btnEliminar.dataset.id = game.id;
+      $btnEliminar.dataset.id = player.id;
       $td2.appendChild($btnEliminar);
 
       $tr.appendChild($td);
@@ -54,7 +50,7 @@ fetch(URL_GAMES, {
       $fragment.appendChild($tr);
     });
 
-    $gameCrudTableContent.appendChild($fragment);
+    $crudTableContent.appendChild($fragment);
   })
   .catch((err) => {
     let message = err.statusText || "Ocurrió un error";
@@ -66,19 +62,19 @@ d.addEventListener("click", (e) => {
     e.preventDefault();
     console.log("hola soy .edit");
     console.log(e);
-    console.log($gameCrudTitle.innerHTML);
-    $gameCrudTitle.innerHTML = "Editar juego";
+    console.log($crudTitle.innerHTML);
+    $crudTitle.innerHTML = "Editar jugador";
     // $gameName.value = e.dataset.id;
     // console.log(`dataset.id = ${e.dataset.id}`);
   }
 
   if (e.target.matches(".delete")) {
     e.preventDefault();
-    $gameCrudTitle.innerHTML = "Eliminar juego";
+    $crudTitle.innerHTML = "Eliminar jugador";
   }
 
   if (e.target.matches(".add")) {
     e.preventDefault();
-    $gameCrudTitle.innerHTML = "Agregar juego";
+    $crudTitle.innerHTML = "Agregar jugador";
   }
 });
