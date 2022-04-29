@@ -76,4 +76,9 @@ d.addEventListener("click", (e) => {
     e.preventDefault();
     $gameCrudTitle.innerHTML = "Eliminar juego";
   }
+
+  if (e.target.matches(".add")){
+    e.preventDefault();
+    $gameCrudTitle.innerHTML = "Agregar juego";
+  }
 });
