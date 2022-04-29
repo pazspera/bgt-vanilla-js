@@ -213,9 +213,9 @@ h6 {
   font-weight: 300;
 }
 
-@media (min-width: 1400px) {
+@media (min-width: 1600px) {
   .hero {
-    height: 75vh;
+    height: 85vh;
   }
 }
 #index {
