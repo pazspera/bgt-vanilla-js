@@ -81,14 +81,26 @@ d.addEventListener("submit", (e) => {
         },
         body: JSON.stringify({
           name: $gameName.value,
-        })
-      }).catch(err => {
+        }),
+      }).catch((err) => {
         let message = err.statusText || "Ocurrió un error";
         $gameCrudForm.insertAdjacentHTML("afterend", `<p>${message}<p>`);
       });
     } else {
       console.log(`${$gameName.dataset.id} tiene id`);
       // PUT editar juego
+      fetch(`${URL_GAMES}/${$gameName.dataset.id}`, {
+        method: "PUT",
+        headers: {
+          "Content-type": "application/json; charset=utf-8",
+        },
+        body: JSON.stringify({
+          name: $gameName.value,
+        }),
+      }).catch((err) => {
+        let message = err.statusText || "Ocurrió un error";
+        $gameCrudForm.insertAdjacentHTML("afterend", `<p>${message}<p>`);
+      });
     }
   }
 });
