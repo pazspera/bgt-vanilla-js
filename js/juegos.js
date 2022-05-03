@@ -1,14 +1,8 @@
-/* 
-    1. Recuperar todos los juegos del json y pintarlos en una tabla on DOMContentLoaded
-
-*/
-
 const d = document;
 const $gameCrudTableContent = d.getElementById("game-crud-table-content");
 const $gameCrudTitle = d.getElementById("game-crud-title");
 const $gameName = d.getElementById("game-name");
 const $gameCrudForm = d.getElementById("game-crud-form");
-console.log($gameCrudForm);
 const URL_GAMES = "http://localhost:3000/games";
 
 // Get all games
@@ -48,6 +42,7 @@ fetch(URL_GAMES, {
       $btnEliminar.textContent = "Eliminar";
       // data attributes
       $btnEliminar.dataset.id = game.id;
+      $btnEliminar.dataset.name = game.name;
       $td2.appendChild($btnEliminar);
 
       $tr.appendChild($td);
@@ -65,14 +60,12 @@ fetch(URL_GAMES, {
 d.addEventListener("submit", (e) => {
   if (e.target === $gameCrudForm) {
     e.preventDefault();
-    console.log("submit");
     // revisa si el input tiene un dataset.id != a null
     // si tiene un número, es put
     // si es null, es post
-    console.log($gameName.dataset.id);
 
     if (!$gameName.dataset.id) {
-      console.log(`${$gameName.dataset.id} no tiene id`);
+      // console.log(`${$gameName.dataset.id} no tiene id`);
       // POST agregar
       fetch(URL_GAMES, {
         method: "POST",
@@ -87,7 +80,7 @@ d.addEventListener("submit", (e) => {
         $gameCrudForm.insertAdjacentHTML("afterend", `<p>${message}<p>`);
       });
     } else {
-      console.log(`${$gameName.dataset.id} tiene id`);
+      // console.log(`${$gameName.dataset.id} tiene id`);
       // PUT editar juego
       fetch(`${URL_GAMES}/${$gameName.dataset.id}`, {
         method: "PUT",
@@ -110,13 +103,7 @@ d.addEventListener("click", (e) => {
     // Al hacer click en editar, se carga la info de id y name del btn .edit en el input game-name
 
     e.preventDefault();
-    console.log("hola soy .edit");
-    console.log(e);
-    console.log($gameCrudTitle.innerHTML);
     $gameCrudTitle.innerHTML = "Editar juego";
-    // $gameName.value = e.dataset.id;
-    console.log(`dataset.id = ${e.target.dataset.id}`);
-    console.log(`dataset.name = ${e.target.dataset.name}`);
     // transfiere la info del btn .edit al input game-name
     $gameName.dataset.id = e.target.dataset.id;
     $gameName.dataset.name = e.target.dataset.name;
@@ -126,6 +113,19 @@ d.addEventListener("click", (e) => {
   if (e.target.matches(".delete")) {
     e.preventDefault();
     $gameCrudTitle.innerHTML = "Eliminar juego";
+    let isDelete = confirm(`¿Querés eliminar el juego ${e.target.dataset.id} - ${e.target.dataset.name}?`);
+
+    if (isDelete) {
+      fetch(`${URL_GAMES}/${e.target.dataset.id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-type": "application/json; charset=utf-8",
+        },
+      }).catch((err) => {
+        let message = err.statusText || "Ocurrió un error";
+        $gameCrudForm.insertAdjacentHTML("afterend", `<p>${message}<p>`);
+      });
+    }
   }
 
   if (e.target.matches(".add")) {
