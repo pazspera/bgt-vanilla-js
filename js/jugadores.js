@@ -26,6 +26,7 @@ fetch(URL_PLAYERS, {
       const $tr = d.createElement("tr");
       const $td = d.createElement("td");
       $td.textContent = player.name;
+      $td.classList.add("align-middle");
 
       // crea btn para editar
       const $td2 = d.createElement("td");
