@@ -128,7 +128,7 @@ d.addEventListener("click", (e) => {
     }
   }
 
-  if (e.target.matches(".add")) {
+  if (e.target.matches(".reset")) {
     e.preventDefault();
     $gameCrudTitle.innerHTML = "Agregar juego";
     // hace que los data atributes del input game-name vuelvan a null para poder validar
