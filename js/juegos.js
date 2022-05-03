@@ -6,11 +6,12 @@
 const d = document;
 const $gameCrudTableContent = d.getElementById("game-crud-table-content");
 const $gameCrudTitle = d.getElementById("game-crud-title");
-console.log($gameCrudTitle);
 const $gameName = d.getElementById("game-name");
-console.log($gameName);
-const URL_GAMES = "./data/games.json";
+const $gameCrudForm = d.getElementById("game-crud-form");
+console.log($gameCrudForm);
+const URL_GAMES = "http://localhost:3000/games";
 
+// Get all games
 fetch(URL_GAMES, {
   method: "GET",
 })
@@ -61,15 +62,53 @@ fetch(URL_GAMES, {
     console.log(message);
   });
 
+d.addEventListener("submit", (e) => {
+  if (e.target === $gameCrudForm) {
+    e.preventDefault();
+    console.log("submit");
+    // revisa si el input tiene un dataset.id != a null
+    // si tiene un número, es put
+    // si es null, es post
+    console.log($gameName.dataset.id);
+
+    if (!$gameName.dataset.id) {
+      console.log(`${$gameName.dataset.id} no tiene id`);
+      // POST agregar
+      fetch(URL_GAMES, {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json; charset=utf-8",
+        },
+        body: JSON.stringify({
+          name: $gameName.value,
+        })
+      }).catch(err => {
+        let message = err.statusText || "Ocurrió un error";
+        $gameCrudForm.insertAdjacentHTML("afterend", `<p>${message}<p>`);
+      });
+    } else {
+      console.log(`${$gameName.dataset.id} tiene id`);
+      // PUT editar juego
+    }
+  }
+});
+
 d.addEventListener("click", (e) => {
   if (e.target.matches(".edit")) {
+    // Al hacer click en editar, se carga la info de id y name del btn .edit en el input game-name
+
     e.preventDefault();
     console.log("hola soy .edit");
     console.log(e);
     console.log($gameCrudTitle.innerHTML);
     $gameCrudTitle.innerHTML = "Editar juego";
     // $gameName.value = e.dataset.id;
-    // console.log(`dataset.id = ${e.dataset.id}`);
+    console.log(`dataset.id = ${e.target.dataset.id}`);
+    console.log(`dataset.name = ${e.target.dataset.name}`);
+    // transfiere la info del btn .edit al input game-name
+    $gameName.dataset.id = e.target.dataset.id;
+    $gameName.dataset.name = e.target.dataset.name;
+    $gameName.value = e.target.dataset.name;
   }
 
   if (e.target.matches(".delete")) {
@@ -80,5 +119,10 @@ d.addEventListener("click", (e) => {
   if (e.target.matches(".add")) {
     e.preventDefault();
     $gameCrudTitle.innerHTML = "Agregar juego";
+    // hace que los data atributes del input game-name vuelvan a null para poder validar
+    // si enviamos una petición post o put al submit
+    $gameName.dataset.id = "";
+    $gameName.dataset.name = "";
+    $gameName.value = "";
   }
 });

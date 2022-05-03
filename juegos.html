@@ -61,13 +61,13 @@
           <div class="col" id="main-content">
             <div>
               <h2 id="game-crud-title">Agregar juego</h2>
-              <form class="game-crud-form">
+              <form id="game-crud-form">
                 <div class="mb-3">
                   <label for="game-name" class="form-label">Nombre del juego</label>
-                  <input id="game-name" class="form-control" type="text" name="nombre" required />
+                  <input id="game-name" class="form-control" type="text" name="nombre" data-id="" data-name="" required/>
                 </div>
                 <div class="mb-3">
-                  <button class="btn btn__secondary add me-3">Agregar juego</button>
+                  <button class="btn btn__secondary add me-3">Reset</button>
                   <input type="submit" class="btn btn__secondary" value="Enviar" />
                 </div>
               </form>

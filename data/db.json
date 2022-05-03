@@ -23,6 +23,22 @@
     {
       "id": 6,
       "name": "Dixit"
+    },
+    {
+      "name": "Roma",
+      "id": 7
+    },
+    {
+      "name": "Game of Thrones",
+      "id": 8
+    },
+    {
+      "name": "",
+      "id": 9
+    },
+    {
+      "name": "",
+      "id": 10
     }
   ],
   "players": [
