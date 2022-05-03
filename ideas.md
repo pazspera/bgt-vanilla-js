@@ -1,0 +1,2 @@
+- Agregar que a medida que se vaya llenando el formulario se guarden los datos en local storage. Así si tenés que agregar un jugador o juego no perdés todo lo que habías completado hasta el momento
+- Crear componente para header

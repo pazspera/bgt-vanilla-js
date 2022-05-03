@@ -9,8 +9,8 @@ const $btnConfirmarJugadores = d.createElement("button");
 const $btnSubmit = d.getElementById("btn-submit");
 let jugadoresEnPartida = [];
 
-const URL_GAMES = "./data/games.json";
-const URL_PLAYERS = "./data/players.json";
+const URL_GAMES = "http://localhost:3000/games";
+const URL_PLAYERS = "http://localhost:3000/players";
 
 // Recuperar juegos disponibles de games.json
 fetch(URL_GAMES, {
